@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrimeBuild Construction | Quality Building Solutions</title>
+  <meta name="description" content="PrimeBuild Construction - Professional construction, renovation, and project management services.">
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #e67e22;
+      --primary-dark: #d35400;
+      --dark: #1a1a2e;
+      --dark-2: #16213e;
+      --light: #f8f9fa;
+      --gray: #6c757d;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+    }
+
+    /* ========== NAVBAR ========== */
+    .navbar {
+      background: rgba(26, 26, 46, 0.95) !important;
+      backdrop-filter: blur(10px);
+      padding: 0.8rem 0;
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      padding: 0.5rem 0;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+
+    .navbar-brand {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.6rem;
+      color: #fff !important;
+    }
+
+    .navbar-brand span {
+      color: var(--primary);
+    }
+
+    .nav-link {
+      color: rgba(255,255,255,0.85) !important;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.5rem 1rem !important;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary) !important;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: all 0.3s;
+      transform: translateX(-50%);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 60%;
+    }
+
+    .btn-primary-custom {
+      background: var(--primary);
+      border: none;
+      color: #fff;
+      font-weight: 600;
+      padding: 0.6rem 1.5rem;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+
+    .btn-primary-custom:hover {
+      background: var(--primary-dark);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(230, 126, 34, 0.4);
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(rgba(26, 26, 46, 0.75), rgba(26, 26, 46, 0.85)),
+                  url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      color: #fff;
+      position: relative;
+    }
+
+    .hero-content h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-content h1 span {
+      color: var(--primary);
+    }
+
+    .hero-content p {
+      font-size: 1.15rem;
+      opacity: 0.9;
+      max-width: 550px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-btns .btn {
+      margin-right: 1rem;
+      margin-bottom: 0.5rem;
+      padding: 0.75rem 1.8rem;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+
+    .btn-outline-light-custom {
+      border: 2px solid #fff;
+      color: #fff;
+      background: transparent;
+      transition: all 0.3s;
+    }
+
+    .btn-outline-light-custom:hover {
+      background: #fff;
+      color: var(--dark);
+    }
+
+    /* Stats bar */
+    .stats-bar {
+      background: var(--primary);
+      padding: 2rem 0;
+      margin-top: -50px;
+      position: relative;
+      z-index: 10;
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    }
+
+    .stat-item {
+      text-align: center;
+      color: #fff;
+    }
+
+    .stat-item h3 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 0.2rem;
+    }
+
+    .stat-item p {
+      margin: 0;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    /* ========== SECTIONS ========== */
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.4rem;
+      color: var(--dark);
+      margin-bottom: 0.8rem;
+    }
+
+    .section-title h2 span {
+      color: var(--primary);
+    }
+
+    .section-title p {
+      color: var(--gray);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .section-title .line {
+      width: 60px;
+      height: 4px;
+      background: var(--primary);
+      margin: 1rem auto;
+      border-radius: 2px;
+    }
+
+    /* ========== ABOUT ========== */
+    .about-img {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+      position: relative;
+    }
+
+    .about-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-img .experience-badge {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: var(--primary);
+      color: #fff;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .about-img .experience-badge h4 {
+      font-size: 2rem;
+      margin: 0;
+    }
+
+    .about-img .experience-badge p {
+      margin: 0;
+      font-size: 0.85rem;
+    }
+
+    .about-content h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+
+    .about-content p {
+      color: var(--gray);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .feature-list li {
+      padding: 0.5rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: #444;
+      font-weight: 500;
+    }
+
+    .feature-list li i {
+      color: var(--primary);
+      font-size: 1.2rem;
+    }
+
+    /* ========== SERVICES ========== */
+    .service-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 2rem;
+      height: 100%;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.06);
+      transition: all 0.3s ease;
+      border: 1px solid #f0f0f0;
+      text-align: center;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+      border-color: var(--primary);
+    }
+
+    .service-icon {
+      width: 80px;
+      height: 80px;
+      background: rgba(230, 126, 34, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 2rem;
+      color: var(--primary);
+      transition: all 0.3s;
+    }
+
+    .service-card:hover .service-icon {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .service-card h4 {
+      font-size: 1.25rem;
+      margin-bottom: 0.8rem;
+      color: var(--dark);
+    }
+
+    .service-card p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+
+    /* ========== PROJECTS ========== */
+    .project-card {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      height: 280px;
+      margin-bottom: 1.5rem;
+      cursor: pointer;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .project-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26,26,46,0.9) 0%, transparent 60%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .project-card:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-overlay h5 {
+      color: #fff;
+      margin-bottom: 0.3rem;
+    }
+
+    .project-overlay span {
+      color: var(--primary);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* ========== WHY US ========== */
+    .why-us {
+      background: var(--dark);
+      color: #fff;
+    }
+
+    .why-us .section-title h2 {
+      color: #fff;
+    }
+
+    .why-card {
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .why-card .icon-box {
+      width: 70px;
+      height: 70px;
+      background: rgba(230, 126, 34, 0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.2rem;
+      font-size: 1.8rem;
+      color: var(--primary);
+    }
+
+    .why-card h5 {
+      margin-bottom: 0.6rem;
+    }
+
+    .why-card p {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    /* ========== TESTIMONIALS ========== */
+    .testimonial-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.06);
+      height: 100%;
+      border: 1px solid #f0f0f0;
+    }
+
+    .testimonial-card .stars {
+      color: #f1c40f;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-card p {
+      color: var(--gray);
+      font-style: italic;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .testimonial-author img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .testimonial-author h6 {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .testimonial-author span {
+      font-size: 0.85rem;
+      color: var(--gray);
+    }
+
+    /* ========== CTA ========== */
+    .cta-section {
+      background: linear-gradient(rgba(26, 26, 46, 0.9), rgba(26, 26, 46, 0.9)),
+                  url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      color: #fff;
+      text-align: center;
+      padding: 5rem 0;
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    /* ========== CONTACT ========== */
+    .contact-info-box {
+      background: var(--dark);
+      color: #fff;
+      border-radius: 10px;
+      padding: 2.5rem;
+      height: 100%;
+    }
+
+    .contact-info-box h3 {
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-item i {
+      font-size: 1.4rem;
+      color: var(--primary);
+      margin-top: 0.2rem;
+    }
+
+    .contact-item h6 {
+      margin-bottom: 0.2rem;
+    }
+
+    .contact-item p {
+      margin: 0;
+      opacity: 0.8;
+      font-size: 0.95rem;
+    }
+
+    .contact-form {
+      background: #fff;
+      border-radius: 10px;
+      padding: 2.5rem;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.06);
+      border: 1px solid #f0f0f0;
+    }
+
+    .contact-form .form-control,
+    .contact-form .form-select {
+      border: 1px solid #e0e0e0;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+
+    .contact-form .form-control:focus,
+    .contact-form .form-select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 0.2rem rgba(230, 126, 34, 0.15);
+    }
+
+    .contact-form label {
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+      color: #444;
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: #111122;
+      color: rgba(255,255,255,0.7);
+      padding: 4rem 0 1.5rem;
+    }
+
+    footer h5 {
+      color: #fff;
+      margin-bottom: 1.2rem;
+      font-size: 1.15rem;
+    }
+
+    footer p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    footer a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: color 0.3s;
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    footer a:hover {
+      color: var(--primary);
+    }
+
+    .social-links a {
+      display: inline-flex;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      margin-right: 0.5rem;
+      font-size: 1.1rem;
+      transition: all 0.3s;
+    }
+
+    .social-links a:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    /* ========== BACK TO TOP ========== */
+    .back-to-top {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 45px;
+      height: 45px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+      z-index: 999;
+      box-shadow: 0 4px 15px rgba(230, 126, 34, 0.4);
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 991px) {
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+      .stats-bar {
+        margin-top: 0;
+        border-radius: 0;
+      }
+      .stat-item {
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+      section {
+        padding: 3.5rem 0;
+      }
+      .section-title h2 {
+        font-size: 1.9rem;
+      }
+    }
+
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Animation helpers */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="#home">
+        <i class="bi bi-building"></i> Prime<span>Build</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item ms-lg-2">
+            <a class="btn btn-primary-custom" href="#contact">Get a Quote</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7 hero-content">
+          <h1>Building Your <span>Dreams</span> Into Reality</h1>
+          <p>We deliver high-quality construction, renovation, and project management services with precision, integrity, and excellence for residential and commercial clients.</p>
+          <div class="hero-btns">
+            <a href="#projects" class="btn btn-primary-custom">View Our Work</a>
+            <a href="#contact" class="btn btn-outline-light-custom">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <div class="container">
+    <div class="stats-bar">
+      <div class="row g-0">
+        <div class="col-6 col-md-3">
+          <div class="stat-item">
+            <h3 class="counter" data-target="250">0</h3>
+            <p>Projects Completed</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-item">
+            <h3 class="counter" data-target="18">0</h3>
+            <p>Years Experience</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-item">
+            <h3 class="counter" data-target="120">0</h3>
+            <p>Expert Workers</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-item">
+            <h3 class="counter" data-target="98">0</h3>
+            <p>Client Satisfaction %</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== ABOUT ========== -->
+  <section id="about">
+    <div class="container">
+      <div class="section-title fade-up">
+        <h2>About <span>Us</span></h2>
+        <div class="line"></div>
+        <p>We are a trusted construction company committed to excellence, safety, and client satisfaction.</p>
+      </div>
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6 fade-up">
+          <div class="about-img">
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Construction team">
+            <div class="experience-badge">
+              <h4>18+</h4>
+              <p>Years of Excellence</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 fade-up">
+          <div class="about-content">
+            <h3>We Build With Passion & Precision</h3>
+            <p>Founded in 2007, PrimeBuild Construction has grown into one of the region's most reliable construction firms. We specialize in residential, commercial, and industrial projects, delivering on time and within budget.</p>
+            <p>Our experienced team of architects, engineers, and skilled craftsmen work together to turn your vision into a lasting structure.</p>
+            <ul class="feature-list">
+              <li><i class="bi bi-check-circle-fill"></i> Licensed & Fully Insured</li>
+              <li><i class="bi bi-check-circle-fill"></i> Quality Materials & Craftsmanship</li>
+              <li><i class="bi bi-check-circle-fill"></i> On-Time Project Delivery</li>
+              <li><i class="bi bi-check-circle-fill"></i> Transparent Pricing</li>
+              <li><i class="bi bi-check-circle-fill"></i> Dedicated Project Managers</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary-custom mt-3">Work With Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICES ========== -->
+  <section id="services" style="background: #f8f9fa;">
+    <div class="container">
+      <div class="section-title fade-up">
+        <h2>Our <span>Services</span></h2>
+        <div class="line"></div>
+        <p>Comprehensive construction solutions tailored to your needs</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4 fade-up">
+          <div class="service-card">
+            <div class="service-icon"><i class="bi bi-house-door"></i></div>
+            <h4>Residential Construction</h4>
+            <p>Custom homes, renovations, and extensions built with quality and care to match your lifestyle and vision.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 fade-up">
+          <div class="service-card">
+            <div class="service-icon"><i class="bi bi-building"></i></div>
+            <h4>Commercial Buildings</h4>
+            <p>Offices, retail spaces, and mixed-use developments designed for functionality, aesthetics, and durability.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 fade-up">
+          <div class="service-card">
+            <div class="service-icon"><i class="bi bi-tools"></i></div>
+            <h4>Renovations & Remodeling</h4>
+            <p>Transform existing spaces with modern designs, structural upgrades, and high-quality finishes.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 fade-up">
+          <div class="service-card">
+            <div class="service-icon"><i class="bi bi-clipboard-check"></i></div>
+            <h4>Project Management</h4>
+            <p>End-to-end project coordination ensuring timelines, budgets, and quality standards are met.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 fade-up">
+          <div class="service-card">
+            <div class="service-icon"><i class="bi bi-bricks"></i></div>
+            <h4>Structural Engineering</h4>
+            <p>Expert structural design, analysis, and consultation for safe and efficient buildings.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 fade-up">
+          <div class="service-card">
+            <div class="service-icon"><i class="bi bi-lightning-charge"></i></div>
+            <h4>Electrical & Plumbing</h4>
+            <p>Professional installation and maintenance of electrical systems, plumbing, and HVAC solutions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROJECTS ========== -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-title fade-up">
+        <h2>Recent <span>Projects</span></h2>
+        <div class="line"></div>
+        <p>A selection of our completed work across residential and commercial sectors</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4 fade-up">
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern Villa">
+            <div class="project-overlay">
+              <h5>Luxury Modern Villa</h5>
+              <span>Residential</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 fade-up">
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Office Complex">
+            <div class="project-overlay">
+              <h5>Skyline Office Complex</h5>
+              <span>Commercial</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 fade-up">
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Apartment Building">
+            <div class="project-overlay">
+              <h5>Greenview Residences</h5>
+              <span>Residential</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 fade-up">
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Retail Center">
+            <div class="project-overlay">
+              <h5>City Center Mall</h5>
+              <span>Commercial</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 fade-up">
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Interior Renovation">
+            <div class="project-overlay">
+              <h5>Penthouse Renovation</h5>
+              <span>Renovation</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 fade-up">
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Industrial Warehouse">
+            <div class="project-overlay">
+              <h5>Logistics Warehouse</h5>
+              <span>Industrial</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="why-us">
+    <div class="container">
+      <div class="section-title fade-up">
+        <h2>Why Choose <span style="color: var(--primary);">PrimeBuild</span></h2>
+        <div class="line"></div>
+        <p style="color: rgba(255,255,255,0.7);">What sets us apart from the rest</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3 fade-up">
+          <div class="why-card">
+            <div class="icon-box"><i class="bi bi-shield-check"></i></div>
+            <h5>Safety First</h5>
+            <p>Strict safety protocols on every site to protect our team and your property.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 fade-up">
+          <div class="why-card">
+            <div class="icon-box"><i class="bi bi-clock-history"></i></div>
+            <h5>On-Time Delivery</h5>
+            <p>We respect deadlines and deliver projects as promised, every time.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 fade-up">
+          <div class="why-card">
+            <div class="icon-box"><i class="bi bi-award"></i></div>
+            <h5>Quality Guarantee</h5>
+            <p>Premium materials and skilled craftsmanship with warranty on our work.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 fade-up">
+          <div class="why-card">
+            <div class="icon-box"><i class="bi bi-people"></i></div>
+            <h5>Expert Team</h5>
+            <p>Experienced professionals dedicated to bringing your project to life.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TESTIMONIALS ========== -->
+  <section id="testimonials" style="background: #f8f9fa;">
+    <div class="container">
+      <div class="section-title fade-up">
+        <h2>Client <span>Testimonials</span></h2>
+        <div class="line"></div>
+        <p>What our clients say about working with us</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4 fade-up">
+          <div class="testimonial-card">
+            <div class="stars">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+            <p>"PrimeBuild transformed our outdated home into a modern masterpiece. The team was professional, punctual, and the quality exceeded our expectations."</p>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client">
+              <div>
+                <h6>James Anderson</h6>
+                <span>Homeowner</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 fade-up">
+          <div class="testimonial-card">
+            <div class="stars">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+            <p>"Their project management was outstanding. Our commercial office was completed on schedule and within budget. Highly recommended!"</p>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client">
+              <div>
+                <h6>Sarah Mitchell</h6>
+                <span>Business Owner</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 fade-up">
+          <div class="testimonial-card">
+            <div class="stars">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-half"></i>
+            </div>
+            <p>"From design to final handover, the entire process was smooth. Transparent communication and excellent craftsmanship throughout."</p>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Client">
+              <div>
+                <h6>Michael Torres</h6>
+                <span>Property Developer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA ========== -->
+  <section class="cta-section">
+    <div class="container fade-up">
+      <h2>Ready to Start Your Project?</h2>
+      <p>Get a free consultation and quote from our experts. Let's build something great together.</p>
+      <a href="#contact" class="btn btn-primary-custom btn-lg">Request a Free Quote</a>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-title fade-up">
+        <h2>Get In <span>Touch</span></h2>
+        <div class="line"></div>
+        <p>Have a project in mind? We'd love to hear from you.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-5 fade-up">
+          <div class="contact-info-box">
+            <h3>Contact Information</h3>
+            <div class="contact-item">
+              <i class="bi bi-geo-alt-fill"></i>
+              <div>
+                <h6>Our Office</h6>
+                <p>125 Construction Avenue, Suite 400<br>New York, NY 10001</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="bi bi-telephone-fill"></i>
+              <div>
+                <h6>Phone</h6>
+                <p>+1 (555) 123-4567<br>+1 (555) 987-6543</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="bi bi-envelope-fill"></i>
+              <div>
+                <h6>Email</h6>
+                <p>info@primebuild.com<br>projects@primebuild.com</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="bi bi-clock-fill"></i>
+              <div>
+                <h6>Working Hours</h6>
+                <p>Mon - Fri: 8:00 AM - 6:00 PM<br>Sat: 9:00 AM - 2:00 PM</p>
+              </div>
+            </div>
+            <div class="social-links mt-4">
+              <a href="#"><i class="bi bi-facebook"></i></a>
+              <a href="#"><i class="bi bi-twitter-x"></i></a>
+              <a href="#"><i class="bi bi-instagram"></i></a>
+              <a href="#"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7 fade-up">
+          <div class="contact-form">
+            <form id="contactForm">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="name" class="form-label">Full Name *</label>
+                  <input type="text" class="form-control" id="name" placeholder="John Doe" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="email" class="form-label">Email Address *</label>
+                  <input type="email" class="form-control" id="email" placeholder="john@example.com" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="phone" class="form-label">Phone Number</label>
+                  <input type="tel" class="form-control" id="phone" placeholder="+1 (555) 000-0000">
+                </div>
+                <div class="col-md-6">
+                  <label for="service" class="form-label">Service Interested In</label>
+                  <select class="form-select" id="service">
+                    <option selected disabled>Select a service</option>
+                    <option>Residential Construction</option>
+                    <option>Commercial Buildings</option>
+                    <option>Renovations & Remodeling</option>
+                    <option>Project Management</option>
+                    <option>Structural Engineering</option>
+                    <option>Electrical & Plumbing</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label for="message" class="form-label">Project Details *</label>
+                  <textarea class="form-control" id="message" rows="5" placeholder="Tell us about your project..." required></textarea>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary-custom w-100 py-3">Send Message</button>
+                </div>
+              </div>
+            </form>
+            <div id="formSuccess" class="alert alert-success mt-3 d-none" role="alert">
+              <i class="bi bi-check-circle-fill me-2"></i> Thank you! Your message has been sent. We'll get back to you soon.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <h5><i class="bi bi-building"></i> Prime<span style="color: var(--primary);">Build</span></h5>
+          <p>Building excellence since 2007. We are committed to delivering high-quality construction services with integrity, innovation, and unmatched craftsmanship.</p>
+          <div class="social-links mt-3">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-twitter-x"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-linkedin"></i></a>
+            <a href="#"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h5>Quick Links</h5>
+          <a href="#home">Home</a>
+          <a href="#about">About Us</a>
+          <a href="#services">Services</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="col-6 col-lg-3">
+          <h5>Our Services</h5>
+          <a href="#services">Residential</a>
+          <a href="#services">Commercial</a>
+          <a href="#services">Renovations</a>
+          <a href="#services">Project Management</a>
+          <a href="#services">Structural Engineering</a>
+        </div>
+        <div class="col-lg-3">
+          <h5>Newsletter</h5>
+          <p>Subscribe for construction tips, project updates, and special offers.</p>
+          <form id="newsletterForm" class="mt-3">
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Your email" required style="border-radius: 4px 0 0 4px; border: none;">
+              <button class="btn btn-primary-custom" type="submit" style="border-radius: 0 4px 4px 0;">
+                <i class="bi bi-send"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="mb-0">&copy; 2025 PrimeBuild Construction. All Rights Reserved. | Designed with care</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // ========== Navbar scroll effect ==========
+    const navbar = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // ========== Active nav link on scroll ==========
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // ========== Counter Animation ==========
+    const counters = document.querySelectorAll('.counter');
+    let countersStarted = false;
+
+    function startCounters() {
+      if (countersStarted) return;
+      counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const duration = 2000;
+        const step = target / (duration / 16);
+        let current = 0;
+        const update = () => {
+          current += step;
+          if (current < target) {
+            counter.textContent = Math.floor(current);
+            requestAnimationFrame(update);
+          } else {
+            counter.textContent = target;
+          }
+        };
+        update();
+      });
+      countersStarted = true;
+    }
+
+    // Trigger counters when stats bar is in view
+    const statsBar = document.querySelector('.stats-bar');
+    const observerOptions = { threshold: 0.5 };
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          startCounters();
+        }
+      });
+    }, observerOptions);
+    if (statsBar) statsObserver.observe(statsBar);
+
+    // ========== Fade-up Animation ==========
+    const fadeElements = document.querySelectorAll('.fade-up');
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+    fadeElements.forEach(el => fadeObserver.observe(el));
+
+    // ========== Back to Top ==========
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        backToTop.classList.add('show');
+      } else {
+        backToTop.classList.remove('show');
+      }
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // ========== Contact Form ==========
+    const contactForm = document.getElementById('contactForm');
+    const formSuccess = document.getElementById('formSuccess');
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      formSuccess.classList.remove('d-none');
+      contactForm.reset();
+      setTimeout(() => {
+        formSuccess.classList.add('d-none');
+      }, 5000);
+    });
+
+    // ========== Newsletter Form ==========
+    const newsletterForm = document.getElementById('newsletterForm');
+    newsletterForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Thank you for subscribing to our newsletter!');
+      newsletterForm.reset();
+    });
+
+    // ========== Close mobile menu on link click ==========
+    document.querySelectorAll('.nav-link, .btn-primary-custom').forEach(link => {
+      link.addEventListener('click', () => {
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+        if (navbarCollapse.classList.contains('show')) {
+          const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse) || new bootstrap.Collapse(navbarCollapse, { toggle: false });
+          bsCollapse.hide();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
